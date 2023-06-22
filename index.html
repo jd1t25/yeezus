@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap');
+    .image-div {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        padding-top: 1%;
+    }    
+
+    .heading {
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .heading {
+        display: flex;
+        justify-content: center;
+    }
+
+    .quote-div {
+        position: absolute;
+        margin-top: 2%;
+        color: black;
+        display: flex;
+        width: 10%;
+        justify-content: center;
+    }
+
+    .button-div{
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+    .text-div {
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+    .blink {
+        font-size: 20px;
+        font-weight: bold;
+        animation: blink 1s linear infinite;
+    }
+
+    @keyframes blink{
+        0%{opacity: 0;}
+        50%{opacity: .5;}
+        100%{opacity: 1;}
+    }
+
+
+    
+    </style>
+</head>
+
+<body>
+    <p class="heading"> Yeezu's Say's</p>
+
+    <div class="image-div">
+        <img src="background.png" alt="" class="image">
+    <div class="quote-div">
+        <p style="font-family: 'Zilla Slab', serif;font-size:1.6em;font-weight:bold;" id="quote">A paragraph.</p>
+    </div>
+    </div>
+    <div class="text-div">
+        <p class="blink">Click on Kanye's Face</p>
+    </div>
+    <div class="button-div">
+    <button onclick="changeLabel()"><img src="kanye.png"></button>
+    </div>
+    <!-- <label id="lblEmp">N/A</label> -->
+</body>
+
+<script>
+    
+    var request = new XMLHttpRequest()
+
+    async function changeLabel() {
+        
+    const response = await fetch("https://api.kanye.rest")
+    const data = await response.json();
+    document.getElementById('quote').innerHTML = data.quote
+    }
+</script>
+
+</html>
